@@ -19,11 +19,29 @@ with open("style.css") as f:
 
 st.sidebar.header("Mask Detection Confidence")
 min_confidence = st.sidebar.slider(' ', 0.1, 1.0, 0.5)
-image = None
+
+def stylize():    
+    #Footer vanish
+    hide_footer_style = """
+    <style>
+    .reportview-container .main footer {visibility: hidden;}    
+    """
+    st.markdown(hide_footer_style, unsafe_allow_html=True)
+    #Hamburger menu vanish
+    hide_streamlit_style = """
+                <style>
+                #MainMenu {visibility: hidden;}
+                footer {visibility: hidden;}
+                </style>
+                """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
+stylize()
 
 uploaded_file = st.file_uploader("Choose a image file", type=["jpg", "png"])
 
 if uploaded_file is not None:
+	image = None
 	# Convert the file to an opencv image.
 	file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
 	image = cv2.imdecode(file_bytes, 1)
@@ -120,3 +138,4 @@ if uploaded_file is not None:
 		shutil.rmtree('output')
 	except OSError as e:
 		st.write("Error: %s - %s." % (e.filename, e.strerror))
+		
