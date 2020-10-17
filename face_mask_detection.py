@@ -71,7 +71,7 @@ if uploaded_file is not None:
 		(104.0, 177.0, 123.0))
 
 	# pass the blob through the network and obtain the face detections
-	print("[INFO] computing face detections...")
+	#print("[INFO] computing face detections...")
 	net.setInput(blob)
 	detections = net.forward()
 
@@ -138,4 +138,3 @@ if uploaded_file is not None:
 		shutil.rmtree('output')
 	except OSError as e:
 		st.write("Error: %s - %s." % (e.filename, e.strerror))
-		
