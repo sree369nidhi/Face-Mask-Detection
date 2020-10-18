@@ -132,11 +132,6 @@ if uploaded_file is not None:
 	#st.image(output_image)
 
 	gif_runner.empty()
-	
-	if label == 'Mask':
-		st.error("No Mask Detected.")
-	elif label == 'No Mask':
-		st.success('Mask Detected!')
 		
 	st.image(output_image)
 
