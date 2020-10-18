@@ -13,6 +13,7 @@ from PIL import Image
 
 st.beta_set_page_config(page_title="Face Mask Detection App",page_icon="😷",layout="centered",initial_sidebar_state="expanded",)
 st.markdown("<h1 style='text-align: center ; color: black;'>Face Mask Detection 😷</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center ; color: black;'>Developed by Iyengar</h3>", unsafe_allow_html=True)
 
 with open("style.css") as f:
     st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
